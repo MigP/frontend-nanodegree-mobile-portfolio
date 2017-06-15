@@ -1,55 +1,69 @@
-## Website Performance Optimization portfolio project
+# 1 - Contents
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+1. - [Contents](README.md#1-contents)
+2. - [Part 1 - Portfolio](README.md#2---part-1---portfolio)
+    * 2.1 - Assets
+    * 2.2 - HTML
+    * 2.3 - CSS
+    * 2.4 - Javascript
+3. - [Part 2 - Pizzas](README.md#3---part-2---pizzas)
+    * 3.1 - Assets
+    * 3.2 - HTML
+    * 3.3 - CSS
+    * 3.4 - Javascript
 
-To get started, check out the repository and inspect the code.
+# 2 - Part 1 - Portfolio
 
-### Getting started
+### [Live Demo](https://migp.github.io/frontend-nanodegree-mobile-portfolio/)
 
-#### Part 1: Optimize PageSpeed Insights score for index.html
+* 2.1 - Assets
 
-Some useful tips to help you get started:
+    * Reduced the size of pizzeria.jpg and optimised it. The image went from 2.25Mb to 27.6Kb.
 
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
+* 2.2 - HTML
 
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
+    * Minified style.css and inlined it in the head.
+    * Linked to the minified version of print.css (print.min.css).
+    * Linked to the minified version of perfmatters.js (permatters.min.js).
+    * Made the google analytics script async.
+    * Removed the link to google fonts and used an async script instead.
+    * Moved the google analytics script to the end of the body.
+    * Minified index.html.
+    
+* 2.3 - CSS
 
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to the top-level of your project directory to make your local server accessible remotely.
+    * Minified style.css and inlined it in the head of index.html.
+    * Minified print.css (print.min.css).
 
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ./ngrok http 8080
-  ```
+* 2.4 - Javascript
 
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
+    * Minified perfmatters.js (permatters.min.js).
 
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
+# 3 - Part 2 - Pizzas
 
-#### Part 2: Optimize Frames per Second in pizza.html
+* 3.1 - Assets
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+    * Reduced the size of pizza.png and optimised it. The image went from 48.7Kb to 24.2Kb.
 
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
+* 3.2 - HTML
 
-### Optimization Tips and Tricks
-* [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
-* [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
-* [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
-* [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
-* [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
+    * Minified styles.css and inlined it in the head.
+    * Linked to the minified version of bootstrap-grid.css (bootstrat-grid.min.css).
+    * Linked to the minified version of main.js (main.min.js).
+    * Minified pizza.html
 
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
+* 3.3 - CSS
 
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+    * Minified style.css and inlined it in the head of index.html.
+    * Minified bootstrap-grid.css (bootstrat-grid.min.css).
+
+* 3.4 - Javascript
+
+    * Reversed a few For loops in order to simply the test condition (lines 343, 347, 351, 442, 495, and 518).
+    * Removed the function determineDx altogether which was complicating things unnecessarily, and simplified the function changePizzaSizes (lines 425-445).
+    * Reduced the number of pizzas created from 100 to 30 (line 459).
+    * Modified the function updatePositions to avoid forced synchronous layouts (line 493).
+    * Used translateX instead of left (line 498).
+    * Changed sliding from 200 to 40, which is more than enough (line 518).
+    * Removed the two lines setting the height and width of the pizzas and added that to the inline styles instead (lines 522-533).
+    * Minified main.js (main.min.js).
