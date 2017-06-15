@@ -209,8 +209,8 @@ function getAdj(x){
       "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar",
       "extinct", "galactic"];
       return scientific_default;
-  }
-}
+  };
+};
 
 // Pulls noun out of array using random number sent from generator
 function getNoun(y) {
@@ -279,8 +279,8 @@ function getNoun(y) {
       "quasar", "blackHole", "warpDrive", "laser", "orbit", "gears", "molecule", "electron", "neutrino", "proton", "experiment", "photon", "apparatus",
       "universe", "gravity", "darkMatter", "constellation", "circuit", "asteroid"];
       return scifi_default;
-  }
-}
+  };
+};
 
 var adjectives = ["dark", "color", "whimsical", "shiny", "noisy", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
 var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
@@ -293,14 +293,14 @@ function generator(adj, noun) {
   var randomNoun = parseInt(Math.random() * nouns.length);
   var name = "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
   return name;
-}
+};
 
 // Chooses random adjective and random noun
 function randomName() {
   var randomNumberAdj = parseInt(Math.random() * adjectives.length);
   var randomNumberNoun = parseInt(Math.random() * nouns.length);
   return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
-}
+};
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
 var selectRandomMeat = function() {
@@ -342,15 +342,15 @@ var makeRandomPizza = function() {
 
   for (var i = numberOfMeats; i--;) { // For loop in reverse simplifies the test condition
     pizza = pizza + ingredientItemizer(selectRandomMeat());
-  }
+  };
 
   for (var j = numberOfNonMeats; j--;) { // For loop in reverse simplifies the test condition
     pizza = pizza + ingredientItemizer(selectRandomNonMeat());
-  }
+  };
 
   for (var k = numberOfCheeses; k--;) { // For loop in reverse simplifies the test condition
     pizza = pizza + ingredientItemizer(selectRandomCheese());
-  }
+  };
 
   pizza = pizza + ingredientItemizer(selectRandomSauce());
   pizza = pizza + ingredientItemizer(selectRandomCrust());
@@ -416,8 +416,8 @@ var resizePizzas = function(size) {
         return;
       default:
         console.log("bug in changeSliderLabel");
-    }
-  }
+    };
+  };
 
   changeSliderLabel(size);
 
@@ -437,12 +437,12 @@ var resizePizzas = function(size) {
         break;
       default:
         console.log("bug in sizeSwitcher");
-    }
+    };
 
     for (var i = randomPizza.length; i--;) { // For loop in reverse simplifies the test condition
       randomPizza[i].style.width = newWidth + '%';
-    }
-  }
+    };
+  };
 
   changePizzaSizes(size);
 
@@ -459,7 +459,7 @@ window.performance.mark("mark_start_generating"); // collect timing data
 for (var i = 2; i < 30; i++) { // Reduced the number of pizzas from 100 to 30
   var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
-}
+};
 
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
 window.performance.mark("mark_end_generating");
@@ -477,9 +477,9 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
   var sum = 0;
   for (var i = numberOfEntries - 1; i > numberOfEntries - 11; i--) {
     sum = sum + times[i].duration;
-  }
+  };
   console.log("Average scripting time to generate last 10 frames: " + sum / 10 + "ms");
-}
+};
 
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
@@ -494,9 +494,9 @@ function updatePositions() {
 
   for (var i = items.length; i--;) { // For loop in reverse simplifies the test condition
     var phase = Math.sin(docScroll + (i % 5));
-    var basicLeft = items[i].basicLeft + 100 * phase + 'px'
+    var basicLeft = items[i].basicLeft + 100 * phase + 'px';
     items[i].style.transform = 'translateX(' + basicLeft + ') translateZ(0)'; // Used translateX instead of left
-  }
+  };
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
@@ -505,8 +505,8 @@ function updatePositions() {
   if (frame % 10 === 0) {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
-  }
-}
+  };
+};
 
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
@@ -524,6 +524,6 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
-  }
+  };
   updatePositions();
 });
