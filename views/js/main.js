@@ -456,8 +456,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+var pizzasDiv = document.getElementById("randomPizzas"); // Took this out of the for loop since it doesn't need to be done repeatedly
 for (var i = 2; i < 30; i++) { // Reduced the number of pizzas from 100 to 30
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -494,8 +494,7 @@ function updatePositions() {
 
   for (var i = items.length; i--;) { // For loop in reverse simplifies the test condition
     var phase = Math.sin(docScroll + (i % 5));
-    var basicLeft = items[i].basicLeft + 100 * phase + 'px';
-    items[i].style.transform = 'translateX(' + basicLeft + ') translateZ(0)'; // Used translateX instead of left
+    items[i].style.transform = 'translateX(' + 100 * phase + 'px)'; // Used translateX instead of left
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -515,7 +514,10 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 40; i--;) { // Changed sliding from 200 to 40 and the for loop in reverse simplifies the test condition
+  var rows = window.screen.height / s; // Calculates the number of rows needed to fil the screen
+  var pizzasNeeded = rows * cols; // Calculates the number of pizzas needed to fill the screen
+
+  for (var i = pizzasNeeded; i--;) { // Changed sliding from 200 to pizzasNeeded and the for loop in reverse simplifies the test condition
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -524,6 +526,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
+    elem.style.left = (i % cols) * s + 'px';
   }
   updatePositions();
 });
