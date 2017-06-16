@@ -1,13 +1,13 @@
 # 1 - Contents
 
-1 - [Contents](README.md#1-contents)
-2 - [Installation](README.md#2-installation)
-3 - [Part 1 - Portfolio](README.md#3---part-1---portfolio)
+1. - [Contents](README.md#1-contents)
+2. - [Installation](README.md#2-installation)
+3. - [Part 1 - Portfolio](README.md#3---part-1---portfolio)
     * 3.1 - Assets
     * 3.2 - HTML
     * 3.3 - CSS
     * 3.4 - Javascript
-4 - [Part 2 - Pizzas](README.md#4---part-2---pizzas)
+4. - [Part 2 - Pizzas](README.md#4---part-2---pizzas)
     * 4.1 - Assets
     * 4.2 - HTML
     * 4.3 - CSS
