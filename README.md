@@ -64,7 +64,7 @@ Clone or download. Copy all the content anywhere on your disk and use your brows
 
 * 4.4 - Javascript
 
-    * Reversed a few For loops in order to simply the test condition (lines 343, 347, 351, 442, 495, and 518).
+    * Reversed a few For loops in order to simply the test condition (lines 343, 347, 351, 442, and 495).
     * Removed the function determineDx altogether which was complicating things unnecessarily, and simplified the function changePizzaSizes (lines 425-445).
     * Took the declaration of pizzasDiv out of the For loop (line 459).
     * Reduced the number of pizzas created from 100 to 30 (line 460).
