@@ -517,7 +517,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var rows = window.screen.height / s; // Calculates the number of rows needed to fil the screen
   var pizzasNeeded = rows * cols; // Calculates the number of pizzas needed to fill the screen
 
-  for (var i = Math.ceil(pizzasNeeded); i--;) { // Changed sliding from 200 to pizzasNeeded and the for loop in reverse simplifies the test condition
+  for (var i = 0; i < Math.ceil(pizzasNeeded); i++) { // Changed sliding from 200 to pizzasNeeded
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
